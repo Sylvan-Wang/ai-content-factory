@@ -12,9 +12,13 @@ interface ComplianceWord {
 
 async function getComplianceWords(): Promise<ComplianceWord[]> {
   if (Date.now() < cacheExpiry) return cachedWords;
-  const { data } = await supabaseAdmin.from('compliance_words').select('word, category, severity').eq('enabled', true);
-  cachedWords = (data ?? []) as ComplianceWord[];
-  cacheExpiry = Date.now() + 10 * 60 * 1000;
+  try {
+    const { data } = await supabaseAdmin.from('compliance_words').select('word, category, severity').eq('enabled', true);
+    cachedWords = (data ?? []) as ComplianceWord[];
+    cacheExpiry = Date.now() + 10 * 60 * 1000;
+  } catch {
+    // return cached or empty
+  }
   return cachedWords;
 }
 
