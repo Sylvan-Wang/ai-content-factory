@@ -6,7 +6,7 @@ export class AIProviderManager {
   private providers: Map<string, AIProvider>;
 
   constructor() {
-    this.providers = new Map([
+    this.providers = new Map<string, AIProvider>([
       ['deepseek', new DeepSeekProvider()],
       ['openai', new OpenAIProvider()],
     ]);
