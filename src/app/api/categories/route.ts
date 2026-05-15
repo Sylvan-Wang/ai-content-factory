@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { getAllCategories } from '@/lib/generation/pipeline';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const categories = await getAllCategories();
