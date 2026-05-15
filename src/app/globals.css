@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-gray-50 text-gray-900;
+    max-width: 430px;
+    margin: 0 auto;
+    min-height: 100dvh;
+  }
+}
+
+@layer utilities {
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+  }
+}
