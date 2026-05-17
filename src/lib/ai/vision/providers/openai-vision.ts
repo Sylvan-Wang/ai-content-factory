@@ -15,7 +15,7 @@ export class OpenAIVisionProvider implements VisionProvider {
       this.model = process.env.OPENAI_VISION_MODEL ?? 'gpt-4o-mini';
     } else {
       this.client = new OpenAI({
-        apiKey: process.env.DEEPSEEK_API_KEY!,
+        apiKey: process.env.DEEPSEEK_API_KEY ?? 'placeholder',
         baseURL: 'https://api.deepseek.com',
       });
       this.model = 'deepseek-chat';

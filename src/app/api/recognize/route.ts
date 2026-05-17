@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { OpenAIVisionProvider } from '@/lib/ai/vision/providers/openai-vision';
+
+export const dynamic = 'force-dynamic';
 import { handleConfidence } from '@/lib/ai/vision/confidence-handler';
 import { getAllCategories } from '@/lib/generation/pipeline';
 import { trackEvent } from '@/lib/analytics/tracker';
